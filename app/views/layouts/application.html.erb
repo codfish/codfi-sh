@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Codly</title>
+  <title><%= content_for?(:title) ? yield(:title) : "Codly" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+		<header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/top_nav' %>
+        </div>
+      </nav>
+    </header>
+
+<div id="page-wrapper">
+	<%= render 'layouts/devise_messages' %>
+	<%= yield %>
+</div>
+
 
 </body>
 </html>

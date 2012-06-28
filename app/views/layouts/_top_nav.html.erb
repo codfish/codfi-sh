@@ -1,8 +1,9 @@
 <%= link_to "cod.ly", root_path, :class => 'brand' %>
+
 <ul class="nav pull-right">
   <% if user_signed_in? %>
     <li>
-    <%= link_to 'Welcome, ' + current_user.name, edit_user_registration_path %>        
+    <%= link_to "Welcome, " << current_user.name, { :controller => "/users", :action => "show", :id => current_user.id } %>
     </li>
     <li>
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        

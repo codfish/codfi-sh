@@ -1,0 +1,21 @@
+<h1>Latest urls</h1>
+
+
+<% @urls.each do |url| %>
+<section class="url">
+	<h3>
+	  <%= link_to url.short_url, "#{root_url}#{url.short_url}"  %>
+	</h3>
+	<p>
+	  <%= url.full_url %>
+	</p>
+	<div class="redirect-count right">
+		<h3><%= url.redirect_count %></h3>
+		<!--<small style="display: block;">REDIRECTS</small>-->
+	</div>
+</section>
+<% end %>
+
+<br />
+
+<%= link_to 'New Url', new_url_path %>

@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<section class="url">
+	<h2>
+	  <%= link_to @url.short_url, "#{root_url}#{@url.short_url}"  %>
+	</h2>
+	<p>
+	  <%= @url.full_url %>
+	</p>
+</section>
+
+<p>
+  <b>Redirect count:</b>
+  <%= @url.redirect_count %>
+</p>
+
+<br />
+<%= link_to 'Home', root_path %>

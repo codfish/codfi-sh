@@ -2,7 +2,7 @@
 
 <section class="url">
 	<h2>
-	  <%= link_to @url.short_url, "#{root_url}#{@url.short_url}"  %>
+	  <%= link_to @url.short_url, "#{root_url}#{@url.short_url}"  %> &nbsp;&nbsp;/&nbsp;&nbsp; <a href="#" class="copy-url" data-short-url="<%= "#{root_url}#{@url.short_url}" %>">Copy this URL</a>
 	</h2>
 	<p>
 	  <%= @url.full_url %>

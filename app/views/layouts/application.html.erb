@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for?(:title) ? yield(:title) : "Codly" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Cod.ly" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-		<header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/top_nav' %>
-        </div>
-      </nav>
-    </header>
 
-<div id="page-wrapper">
-	<%= render 'layouts/devise_messages' %>
-	
-	<!-- <%= current_user.inspect %> -->
-	
-	<%= yield %>
-</div>
-
+	<div id="page-wrapper">
+		<%= render 'layouts/nav' %>
+		
+		<div id="logo"><%= link_to "cod.ly", root_path, :class => 'brand' %></div>
+		
+		<div id="content">
+			<%= render 'layouts/devise_messages' %>
+			
+			<%= yield %>
+		</div>
+	</div>
 
 </body>
 </html>

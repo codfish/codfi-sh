@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.

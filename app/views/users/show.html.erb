@@ -1,3 +1,20 @@
+<h1>My Account</h1>
 
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<table>
+	<tr>
+		<td>Name</td>
+		<td><%= @user.name %></td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><%= @user.email if @user.email %></td>
+	</tr>
+	<tr>
+	<td>Shortened URLs</td>
+	<td><%= @url_count if @url_count %></td>
+	</tr>
+</table>
+
+<br />
+
+<%= link_to "Edit", edit_user_registration_path %>

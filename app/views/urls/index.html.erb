@@ -1,21 +1,21 @@
-<h1>Latest urls</h1>
 
 
-<% @urls.each do |url| %>
-<section class="url">
-	<h3>
-	  <%= link_to url.short_url, "#{root_url}#{url.short_url}"  %>
-	</h3>
-	<p>
-	  <%= url.full_url %>
-	</p>
-	<div class="redirect-count right">
-		<h3><%= url.redirect_count %></h3>
-		<!--<small style="display: block;">REDIRECTS</small>-->
-	</div>
-</section>
-<% end %>
+<h1><%= @popular %>Latest urls</h1>
 
-<br />
+<ul class="url-items">
+	<% @urls.each do |url| %>
+	<li>
+		<span class="redirect-count" rel="tooltip" title="This short url was used <%= url.redirect_count %> times." data-original-title="This short url was used <%= url.redirect_count %> times.">
+			<%= url.redirect_count %>
+		</span>
+		<h3>
+		  <%= link_to "#{request.domain}/#{url.short_url}", "#{root_url}#{url.short_url}" %><!-- &nbsp;&nbsp;/&nbsp;&nbsp; <a href="#" data-short-url="<%= "#{root_url}#{url.short_url}" %>">Copy this URL</a> -->
+		</h3>
+		<p class="full-url">
+		  <%= url.full_url %>
+		</p>
+	</li>
+	<% end %>
+</ul>
 
 <%= link_to 'New Url', new_url_path %>

@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+ 
+/* @import url(http://fonts.googleapis.com/css?family=Quicksand:400,700|Josefin+Sans:400,600|Varela); */
+
+@import url(http://fonts.googleapis.com/css?family=Quicksand|Josefin+Sans:400,600);

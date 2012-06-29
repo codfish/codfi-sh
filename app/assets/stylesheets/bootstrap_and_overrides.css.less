@@ -1,33 +1,120 @@
 @import "twitter/bootstrap/bootstrap";
-body { 
-	padding-top: 60px;
-	padding-left: 20px;
-}
-
 @import "twitter/bootstrap/responsive";
 
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
 @iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
 
-// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not 
-//       have the proper paths. So for now we use the absolute path.
-@fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
-@fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
-@fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
-@fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
+// font-family: 'Quicksand', sans-serif; (normal 400 and bold 700)
+// font-family: 'Josefin Sans', sans-serif; (normal 400 and semi-bold 600)
+// font-family: 'Varela', sans-serif; (normal 400)
 
-// Font Awesome
-// @import "fontawesome";
+// Custom vars
+@codlyColor: teal;
+@logoFontFamily: 'Josefin Sans', 'Quicksand',Arial,"Liberation Sans",FreeSans,sans-serif;
 
-// Your custom LESS stylesheets goes here
-//
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
-//
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/less.html for their names and documentation
-//
-// Example:
-// @linkColor: #ff0000;
+// Redefine some twitter vars
+@baseFontFamily: 'Quicksand',Arial,"Liberation Sans",FreeSans,sans-serif;
+@bodyBackground: @grayDark;
+@textColor: @white;
+@successBackground: #deecf1;
+@successText:@codlyColor;
+
+body { 
+	font-family: @baseFontFamily;
+}
+
+h1, h2 {
+	font-size: 23px;
+	margin-bottom: 15px;
+}
+
+a {
+	color: @grayLight;
+}
+
+a:hover {
+	text-decoration: none;
+	transition: color .5s;
+	-moz-transition: color .5s; /* Firefox 4 */
+	-webkit-transition: color .5s; /* Safari and Chrome */
+	-o-transition: color .5s; /* Opera */
+	color: @codlyColor;
+}
+
+table td {
+	padding: 10px 20px 10px 0;
+}
+
+#page-wrapper {
+	padding-top: 60px;
+	position: relative;
+}
+
+#logo {
+	padding-left: 250px;
+	font-size: 85px;
+	font-weight: 600;
+	font-family: @logoFontFamily;	
+	color: @codlyColor;
+	margin-bottom: 50px;
+}
+
+#logo a {
+	color: @codlyColor;
+}
+
+#logo a:hover {
+	color: @codlyColor;
+	text-decoration: none;
+}
+
+.site-navigation {
+	position: absolute;
+	left: 10px;
+	width: 200px;
+}
+
+.site-navigation ul {
+	list-style-type: none;
+}
+
+.site-navigation ul li {
+	float: none;
+	display: block;
+	margin-bottom: 5px;
+	
+}
+
+#content {
+	padding: 0 0 50px 250px;
+	max-width: 600px;
+	.clearfix();
+}
+
+.url-items {
+	padding: 0;
+	margin: 0 0 20px;
+	list-style: none;
+}
+
+.url-items li {
+  padding: 10px 50px 5px 0 !important;
+  position: relative;
+}
+
+.full-url {
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.redirect-count {
+  display: block;
+  font-size: 20px;
+  top: 17px;
+  position: absolute;
+  right: 10px;
+}

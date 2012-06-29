@@ -1,0 +1,29 @@
+
+<nav id="main-nav" class="site-navigation">
+	<ul>
+	  <li><span class="icon-home icon-white"></span>
+	  <%= link_to 'Home', root_path %>        
+	  </li>
+	  <li><span class="icon-fire icon-white"></span>
+	  <%= link_to "Most Popular", popular_path%>
+	  </li>
+	  <% if user_signed_in? %>
+			<li><span class="icon-user icon-white"></span>
+	    <%= link_to current_user.name, "/users/#{current_user.id}/urls" %>
+	    </li>
+	    <li><span class="icon-cog icon-white"></span>
+	    <%= link_to 'My Account', current_user %>
+			</li>
+	    <li><span class="icon-lock icon-white"></span>
+	    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
+	    </li>
+		<% else %>
+	    <li><span class="icon-lock icon-white"></span>
+	    <%= link_to 'Login', new_user_session_path %>  
+	    </li>
+	    <li><span class="icon-plus icon-white"></span>
+	    <%= link_to 'Register', new_user_registration_path %>
+	    </li>
+	  <% end %>
+	</ul>
+</nav>

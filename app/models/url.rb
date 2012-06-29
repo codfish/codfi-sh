@@ -1,24 +1,26 @@
 class Url < ActiveRecord::Base
   attr_accessible :full_url, :redirect_count, :short_url
   
-  validates :full_url, :presence => true, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix, :message => "Not a valid URL" }
-  validate :not_linked_to_codly?
-  
-  after_validation :set_short_url
+  before_validation :initialize_shorten_me
+  validates 				:full_url, :presence => true, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix, :message => "Not a valid URL" }
+  validate 					:not_linked_to_codly?
+  before_save 	:set_short_url
   
   has_many :user_urls
   has_many :users, :through => :user_urls
   
 #   default_scope o
-  
-  SHORTEN_ME = true
+
+  def initialize_shorten_me
+    @shorten_me = true
+  end
 
   def increment_redirect_count!
     update_attribute(:redirect_count, redirect_count + 1)
   end
   
   def dont_shorten_me!
-  	#SHORTEN_ME = false
+    @shorten_me = false
   end
   
   private
@@ -28,7 +30,7 @@ class Url < ActiveRecord::Base
   end
   
   def set_short_url
-		self.short_url = Url.create_short_url_path unless SHORTEN_ME == false
+		self.short_url = Url.create_short_url_path if @shorten_me
   end
   
   # characters to use when generating your short url path (0..9,a..z,A-Z)

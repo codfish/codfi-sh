@@ -2,7 +2,6 @@ Codly::Application.routes.draw do
 
   root :to => 'urls#index'
   
-  #match "/urls" => redirect("/")
   match "/urls/popular" => 'urls#index', :defaults => { :popular => true }, :as => :popular
   resources :urls
   

@@ -3,18 +3,20 @@ class UrlsController < ApplicationController
 	before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
   before_filter :get_url, :only => [ :edit, :show, :update, :destroy ]
   
- # default_scope order("updated_at")
+	#default_scope order("redirect_count DESC"), :default => true 
 
   def index
   	if user_signed_in?
 	  	@urls = current_user.urls.all
-  	else
-	    @urls = Url.all
+  	else 
+	    @urls = Url.order("created_at DESC")
 	  end
 	  
 	  if params[:popular]
-	  	
+	  	@popular = true
 	  end
+	  
+	  @url = Url.new	  
   end
 
   def show
@@ -49,7 +51,7 @@ class UrlsController < ApplicationController
 	  end
 	  
 	  if @url.save
-      redirect_to urls_url
+      redirect_to root_path
     else
       render action: "new"
     end

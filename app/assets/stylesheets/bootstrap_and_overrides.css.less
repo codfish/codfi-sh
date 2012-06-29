@@ -10,15 +10,15 @@
 // font-family: 'Varela', sans-serif; (normal 400)
 
 // Custom vars
-@codlyColor: teal;
+@codlyColor: #25B4CF;
 @logoFontFamily: 'Josefin Sans', 'Quicksand',Arial,"Liberation Sans",FreeSans,sans-serif;
 
 // Redefine some twitter vars
 @baseFontFamily: 'Quicksand',Arial,"Liberation Sans",FreeSans,sans-serif;
-@bodyBackground: @grayDark;
-@textColor: @white;
+@bodyBackground: #333;
+@textColor: @grayLight;
 @successBackground: #deecf1;
-@successText:@codlyColor;
+@successText: @codlyColor;
 
 body { 
 	font-family: @baseFontFamily;
@@ -30,7 +30,7 @@ h1, h2 {
 }
 
 a {
-	color: @grayLight;
+	color: white;
 }
 
 a:hover {
@@ -47,7 +47,7 @@ table td {
 }
 
 #page-wrapper {
-	padding-top: 60px;
+	margin-top: 60px;
 	position: relative;
 }
 
@@ -71,6 +71,7 @@ table td {
 
 .site-navigation {
 	position: absolute;
+	top: 0;
 	left: 10px;
 	width: 200px;
 }
@@ -117,4 +118,23 @@ table td {
   top: 17px;
   position: absolute;
   right: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  #content, #logo {
+		padding: 10px;
+	}
+	
+	.site-navigation {
+		position: relative;
+	}
+	
+	.site-navigation ul {
+		padding-left: 0;
+		margin-left: 0;
+	}
+	
+	.full-url {
+		max-width: 200px;
+	}
 }

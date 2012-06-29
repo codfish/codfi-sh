@@ -1,7 +1,7 @@
 class UrlsController < ApplicationController
 
-	before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
-	before_filter :get_url, :only => [ :edit, :show, :update, :destroy ]
+  before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
+  before_filter :get_url, :only => [ :edit, :show, :update, :destroy ]
 	
   def index
     if params[:user_id]

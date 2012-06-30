@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
 
 <section class="url">
 	<h2>
-	  <%= link_to @url.short_url, "#{root_url}#{@url.short_url}"  %> &nbsp;&nbsp;/&nbsp;&nbsp; <a href="#" class="copy-url" data-short-url="<%= "#{root_url}#{@url.short_url}" %>">Copy this URL</a>
+	  <%= link_to "cod.ly/#{@url.short_url}", "#{root_url}#{@url.short_url}"  %><!-- &nbsp;&nbsp;/&nbsp;&nbsp; <a href="#" class="copy-url" data-short-url="<%= "#{root_url}#{@url.short_url}" %>">Copy this URL</a>-->
 	</h2>
 	<p>
 	  <%= @url.full_url %>
@@ -10,8 +9,13 @@
 </section>
 
 <p>
-  <b>Redirect count:</b>
-  <%= @url.redirect_count %>
+  <b>Shortened:</b>
+  <%= @url.shortened_count %> times
+</p>
+
+<p>
+  <b>Redirected:</b>
+  <%= @url.redirect_count %> times
 </p>
 
 <br />

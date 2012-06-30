@@ -1,6 +1,6 @@
 <%= render 'form' %>
 
-<h1><%= @popular ? 'Most popular urls' : 'Latest urls' %></h1>
+<h1><%= @page_header ? @page_header : "Latest Urls" %></h1>
 
 <ul class="url-items">
 	<% @urls.each do |url| %>

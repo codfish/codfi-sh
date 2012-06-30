@@ -18,7 +18,7 @@
 @bodyBackground: #333;
 @textColor: @grayLight;
 @successBackground: #deecf1;
-@successText: @codlyColor;
+@successText: #225a94;
 
 body { 
 	font-family: @baseFontFamily;
@@ -118,6 +118,24 @@ table td {
   top: 17px;
   position: absolute;
   right: 10px;
+}
+
+.url-field {
+  padding: 10px;
+  .clearfix();
+  background: #444;
+  border: 1px solid #444;
+  -webkit-border-radius: 3px;
+}
+
+.url-field label {
+  font-style: italic;
+}
+
+.url-field input[type=text] {
+  float: left;
+  width: 400px;
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 480px) {

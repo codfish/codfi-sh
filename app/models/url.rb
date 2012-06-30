@@ -10,7 +10,7 @@ class Url < ActiveRecord::Base
   after_validation    :increment_shortened_count # if it validates, it's safe to increment the # of times it was shortened. 
   before_save         :set_short_url # if it validates, it's safe to increment the # of times it was shortened.
   
-  default_scope order("created_at DESC")
+  # default_scope order("created_at DESC")
 
   def initialize_shorten_me
     @shorten_me = true
@@ -31,7 +31,7 @@ class Url < ActiveRecord::Base
   end
   
   def validates_not_linked_to_codly
-    errors.add(:full_url, "can't link to cod.ly.") if (self.full_url.include?('cod.ly') || self.full_url.include?('http://codly') || self.full_url.include?('localhost'))
+    # errors.add(:full_url, "can't link to cod.ly.") if (self.full_url.include?('cod.ly') || self.full_url.include?('http://codly') || self.full_url.include?('localhost'))
   end
   
   def validates_uniqueness_per_user

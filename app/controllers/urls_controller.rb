@@ -7,13 +7,13 @@ class UrlsController < ApplicationController
 	
   def index
     if params[:user_id]
-      @urls = current_user.urls.unscoped.order("redirect_count DESC")
+      @urls = current_user.urls.order("redirect_count DESC")
       @page_header = "My Short Urls"
     elsif params[:popular]
-      @urls = Url.unscoped.order("redirect_count DESC")
+      @urls = Url.order("redirect_count DESC")
       @page_header = "Most Popular Short Urls"
     else
-      @urls = Url.unscoped.order("created_at DESC")
+      @urls = Url.order("created_at DESC")
       @page_header = "Latest Urls"
     end
     

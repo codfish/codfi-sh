@@ -2,9 +2,9 @@ class UrlsController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
   before_filter :get_url, :only => [ :edit, :show, :update, :destroy ]
-  
+
   respond_to :html, :json
-	
+
   def index
     if params[:user_id]
       @urls = current_user.urls.order("redirect_count DESC")
@@ -16,20 +16,20 @@ class UrlsController < ApplicationController
       @urls = Url.order("created_at DESC")
       @page_header = "Latest Urls"
     end
-    
-    @url = Url.new	  
+
+    @url = Url.new
   end
-  
+
   def show
   end
-  
+
   def new
     @url = Url.new
   end
-  
+
   def edit
   end
-  
+
   def create
     @url = Url.new(params[:url]) unless (@url = Url.find_by_full_url(params[:url][:full_url]))
     @url.users << current_user if (user_signed_in?)
@@ -37,7 +37,7 @@ class UrlsController < ApplicationController
     flash[:notice] = "Short url was successfully created." if @url.save
     respond_with @url
   end
-  
+
   def update
     if @url.update_attributes(params[:url])
       redirect_to @url, notice: 'Url was successfully updated.'
@@ -45,13 +45,13 @@ class UrlsController < ApplicationController
       render action: "edit"
     end
   end
-  
+
   def destroy
     @url = Url.find(params[:id])
-    @url.destroy		
+    @url.destroy
     redirect_to urls_url
   end
-  
+
   def redirect
     if @url = Url.find_by_short_url(params[:short_url])
       @url.dont_shorten_me
@@ -61,9 +61,9 @@ class UrlsController < ApplicationController
       redirect_to urls_url
     end
   end
-  
-  private 
-  
+
+  private
+
   def get_url
     @url = Url.find(params[:id])
   end

@@ -20,83 +20,83 @@
 @successBackground: #deecf1;
 @successText: #225a94;
 
-body { 
-	font-family: @baseFontFamily;
+body {
+  font-family: @baseFontFamily;
 }
 
 h1, h2 {
-	font-size: 23px;
-	margin-bottom: 15px;
+  font-size: 23px;
+  margin-bottom: 15px;
 }
 
 a {
-	color: white;
+  color: white;
 }
 
 a:hover {
-	text-decoration: none;
-	transition: color .5s;
-	-moz-transition: color .5s; /* Firefox 4 */
-	-webkit-transition: color .5s; /* Safari and Chrome */
-	-o-transition: color .5s; /* Opera */
-	color: @codlyColor;
+  text-decoration: none;
+  transition: color .5s;
+  -moz-transition: color .5s; /* Firefox 4 */
+  -webkit-transition: color .5s; /* Safari and Chrome */
+  -o-transition: color .5s; /* Opera */
+  color: @codlyColor;
 }
 
 table td {
-	padding: 10px 20px 10px 0;
+  padding: 10px 20px 10px 0;
 }
 
 #page-wrapper {
-	margin-top: 60px;
-	position: relative;
+  margin-top: 60px;
+  position: relative;
 }
 
 #logo {
-	padding-left: 250px;
-	font-size: 85px;
-	font-weight: 600;
-	font-family: @logoFontFamily;	
-	color: @codlyColor;
-	margin-bottom: 50px;
+  padding-left: 250px;
+  font-size: 85px;
+  font-weight: 600;
+  font-family: @logoFontFamily;
+  color: @codlyColor;
+  margin-bottom: 50px;
 }
 
 #logo a {
-	color: @codlyColor;
+  color: @codlyColor;
 }
 
 #logo a:hover {
-	color: @codlyColor;
-	text-decoration: none;
+  color: @codlyColor;
+  text-decoration: none;
 }
 
 .site-navigation {
-	position: absolute;
-	top: 0;
-	left: 10px;
-	width: 200px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 200px;
 }
 
 .site-navigation ul {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 .site-navigation ul li {
-	float: none;
-	display: block;
-	margin-bottom: 5px;
-	
+  float: none;
+  display: block;
+  margin-bottom: 5px;
+
 }
 
 #content {
-	padding: 0 0 50px 250px;
-	max-width: 600px;
-	.clearfix();
+  padding: 0 0 50px 250px;
+  max-width: 600px;
+  .clearfix();
 }
 
 .url-items {
-	padding: 0;
-	margin: 0 0 20px;
-	list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  list-style: none;
 }
 
 .url-items li {
@@ -142,19 +142,19 @@ table td {
 
 @media screen and (max-width: 480px) {
   #content, #logo {
-		padding: 10px;
-	}
-	
-	.site-navigation {
-		position: relative;
-	}
-	
-	.site-navigation ul {
-		padding-left: 0;
-		margin-left: 0;
-	}
-	
-	.full-url {
-		max-width: 200px;
-	}
+    padding: 10px;
+  }
+
+  .site-navigation {
+    position: relative;
+  }
+
+  .site-navigation ul {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .full-url {
+    max-width: 200px;
+  }
 }

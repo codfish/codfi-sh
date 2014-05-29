@@ -1,11 +1,10 @@
-
 <section class="url">
-	<h2>
-	  <%= link_to "codly.chrisodonnell.io/#{@url.short_url}", "#{root_url}#{@url.short_url}"  %><!-- &nbsp;&nbsp;/&nbsp;&nbsp; <a href="#" class="copy-url" data-short-url="<%= "#{root_url}#{@url.short_url}" %>">Copy this URL</a>-->
-	</h2>
-	<p>
-	  <%= @url.full_url %>
-	</p>
+  <h2>
+    <%= link_to "codly.chrisodonnell.io/#{@url.short_url}", "#{root_url}#{@url.short_url}"  %>
+  </h2>
+  <p>
+    <%= @url.full_url %>
+  </p>
 </section>
 
 <p>

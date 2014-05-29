@@ -9,7 +9,7 @@ module ControllerMacros
   end
 end
 
-module Codly	  
+module Codly
   module RequestTestHelpers
     def sign_in(user)
       visit root_path

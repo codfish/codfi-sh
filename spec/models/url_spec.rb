@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Url do
+describe Url, :type => :model do
 
   context "associations" do
     it { should have_many(:users).through(:user_urls) }
@@ -42,16 +42,14 @@ describe Url do
     end
 
     it "should not fail on shortening a Url that's already been shortened" do
-      url = Url.new(full_url: "http://www.testingisannoying.com")
       url.save.should === true
-      ur12 = Url.new(full_url: "http://www.testingisannoying.com")
+      url2 = url
       url2.save.should === true
     end
 
     it "should not re-shorten a Url that's already been shortened" do
-      ur1 = Url.new(full_url: "http://www.testingisannoying.com")
       url.save.should === true
-      ur12 = Url.new(full_url: "http://www.testingisannoying.com")
+      url2 = url
       url2.save.should === true
       url2.short_url.should === url.short_url
     end

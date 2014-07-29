@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "user registration" do
+describe "user registration", :type => :feature do
   it "allows new users to register with an email address and password" do
     visit "/users/sign_up"
 
@@ -13,7 +13,7 @@ describe "user registration" do
 
     page.should have_content("Welcome! You have signed up successfully.")
   end
-  
+
   it "does not allow new users to register with incorrect confirmation password" do
     visit "/users/sign_up"
 
@@ -28,10 +28,12 @@ describe "user registration" do
   end
 end
 
-describe "user sign in" do
+describe "user sign in", :type => :feature do
   it "allows users to sign in after they have registered" do
-    user = User.create(:email    => "alindeman@example.com",
-                       :password => "ilovegrapes")
+    user = User.create(:name                  => "alindeman",
+                       :email                 => "alindeman@example.com",
+                       :password              => "ilovegrapes",
+                       :password_confirmation => "ilovegrapes")
 
     visit "/users/sign_in"
 
@@ -42,7 +44,7 @@ describe "user sign in" do
 
     page.should have_content("Signed in successfully.")
   end
-  
+
   it "doesn't sign in user with wrong credentials" do
     user = User.create(:email    => "alindeman@example.com",
                        :password => "ilovegrapes")

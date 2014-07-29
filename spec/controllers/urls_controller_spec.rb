@@ -1,17 +1,9 @@
 require 'spec_helper'
 include Devise::TestHelpers
 
-describe UrlsController do
-
+describe UrlsController, :type => :controller do
   def valid_attributes
     { full_url: "http://www.testingisannoying.com" }
-  end
-
-  describe "when logged out" do
-    it "GET#edit should not respond successfully" do
-      get :edit
-      response.should_not be_success
-    end
   end
 
   describe "when logged in" do

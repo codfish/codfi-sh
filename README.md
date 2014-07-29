@@ -1,25 +1,42 @@
-Final Assignment
-================
+Cod.ly
+======
 
-Here's your class assignment for the final project.
+https://github.com/generalassembly/ga-ruby-on-rails-for-devs
 
-**Assignment:** Build a Hosted URL Shortener Service
+Getting Started
+---------------
 
-**Due:** 6/30 at the latest
+Install [Homebrew](http://brew.sh/). Then install PostgresSQL with homebrew:
 
-A URL shortener service allows users to create short redirect URLs from very long URLs. For example, Bit.ly will shorten https://github.com/generalassembly/ga-ruby-on-rails-for-devs as http://bit.ly/whjfQ0.
+```sh
+  $ brew update
+  $ brew install postgresql
 
-The minimal set of features is:
--------------------------------
+  # If this is your first install, create a database with:
+  $ initdb /usr/local/var/postgres
+```
 
-- An anonymous user should be able to shorten a URL by entering it on the site. Using this URL redirects the browser to the destination URL.
-- Users can register and shorten URLs. Registered users can see all the URLs they have shortened.
-- Users can see a page with the number of times someone has used their short URLs, most popular URL first.
-- The site has a public page with the number of times someone has used any of the short URLs, most popular URL first.
-- The implementation must be Ruby on Rails, be committed to Github and the service has to run on Heroku. 
+**Set up project**
 
+```sh
+  $ git clone git@github.com:codonnell822/codly.git
+  $ cd codly
+  $ bundle install
 
-Please let me know if you have any questions.
+  # Create db's and run migrations
+  $ rake db:create:all
+  $ rake db:migrate
 
-cheers
-dB.
+  # run site, view at http://localhost:3000/
+  $ rails s
+```
+
+Testing
+-------
+
+Run tests
+
+```sh
+  $ rake db:test:prepare
+  $ bundle exec rspec spec
+```

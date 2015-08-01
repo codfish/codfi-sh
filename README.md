@@ -1,10 +1,9 @@
-Cod.ly
-======
+# Codfi.sh
 
 https://github.com/generalassembly/ga-ruby-on-rails-for-devs
 
-Getting Started
----------------
+
+## Getting Started
 
 Install [Homebrew](http://brew.sh/). Then install PostgresSQL with homebrew:
 
@@ -19,8 +18,7 @@ Install [Homebrew](http://brew.sh/). Then install PostgresSQL with homebrew:
 **Set up project**
 
 ```sh
-  $ git clone git@github.com:codonnell822/codly.git
-  $ cd codly
+  $ git clone git@github.com:codfish/codfi-sh.git codfi.sh && cd $_
   $ bundle install
 
   # Create db's and run migrations
@@ -31,8 +29,7 @@ Install [Homebrew](http://brew.sh/). Then install PostgresSQL with homebrew:
   $ rails s
 ```
 
-Testing
--------
+## Testing
 
 Run tests
 

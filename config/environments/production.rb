@@ -1,4 +1,4 @@
-Codly::Application.configure do
+Codfish::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -64,7 +64,7 @@ Codly::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  
+
   # Set default url options
-  config.action_mailer.default_url_options = { :host => 'codly.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'codfish.herokuapp.com' }
 end

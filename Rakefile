@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Codly::Application.load_tasks
+Codfish::Application.load_tasks

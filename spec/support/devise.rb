@@ -9,7 +9,7 @@ module ControllerMacros
   end
 end
 
-module Codly
+module Codfish
   module RequestTestHelpers
     def sign_in(user)
       visit root_path
@@ -29,5 +29,5 @@ end
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerMacros, :type => :controller
-  config.include Codly::RequestTestHelpers, :type => :request
+  config.include Codfish::RequestTestHelpers, :type => :request
 end

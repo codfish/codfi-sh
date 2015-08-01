@@ -6,7 +6,7 @@ class Url < ActiveRecord::Base
 
   after_initialize    :initialize_shorten_me
   validates           :full_url, :presence => true, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix, :message => "Not a valid URL" } # , :uniqueness => { :scope => :users_id, :message => "You already created that short url." }
-  validate            :validates_not_linked_to_codly, :validates_uniqueness_per_user
+  validate            :validates_not_linked_to_itself, :validates_uniqueness_per_user
   after_validation    :increment_shortened_count # if it validates, it's safe to increment the # of times it was shortened.
   before_save         :set_short_url # if it validates, it's safe to increment the # of times it was shortened.
 
@@ -30,15 +30,15 @@ class Url < ActiveRecord::Base
     update_attribute(:shortened_count, shortened_count + 1)
   end
 
-  def validates_not_linked_to_codly
-    # errors.add(:full_url, "can't link to cod.ly.") if (self.full_url.include?('cod.ly') || self.full_url.include?('http://codly') || self.full_url.include?('localhost'))
+  def validates_not_linked_to_itself
+    errors.add(:full_url, "Can't link to codfi.sh") if self.full_url.include?('codfi.sh')
   end
 
   def validates_uniqueness_per_user
     self.dont_shorten_me if Url.find_by_full_url(self.full_url)
     return true if self.users.empty?
     if @user = User.find(self.users[0].id) and @user.urls.find_by_full_url(self.full_url)
-      errors.add(:full_url, "You have already shortened this Url.")
+      errors.add(:full_url, "You've already shortened this Url.")
     end
   end
 

@@ -4,15 +4,15 @@ common: &common
   pool: 5
   host: localhost
   port: 5432
-  
+
 development:
   <<: *common
-  database: codly_development
+  database: codfish_development
 
 test:
   <<: *common
-  database: codly_test
+  database: codfish_test
 
 production:
   <<: *common
-  database: codly_production
+  database: codfish_production

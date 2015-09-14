@@ -18,7 +18,6 @@ Install [Homebrew](http://brew.sh/). Then install PostgresSQL with homebrew:
 **Set up project**
 
 ```sh
-  $ git clone git@github.com:codfish/codfi-sh.git codfi.sh && cd $_
   $ bundle install
 
   # Create db's and run migrations

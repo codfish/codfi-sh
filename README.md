@@ -21,11 +21,11 @@ Install [Homebrew](http://brew.sh/). Then install PostgresSQL with homebrew:
   $ bundle install
 
   # Create db's and run migrations
-  $ rake db:create:all
-  $ rake db:migrate
+  $ bundle exec rake db:create:all
+  $ bundle exec rake db:migrate
 
   # run site, view at http://localhost:3000/
-  $ rails s
+  $ bundle exec rails s
 ```
 
 ## Testing
@@ -33,6 +33,6 @@ Install [Homebrew](http://brew.sh/). Then install PostgresSQL with homebrew:
 Run tests
 
 ```sh
-  $ rake db:test:prepare
+  $ bundle exec rake db:test:prepare
   $ bundle exec rspec spec
 ```

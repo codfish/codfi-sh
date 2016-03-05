@@ -10,7 +10,7 @@ describe Url, :type => :model do
   context "validations" do
     let(:url) { Fabricate.build(:url) }
     it { url.should validate_presence_of :full_url }
-#     it { url.should match(/^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix) }
+    # it { url.should match(/^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix) }
   end
 
   context "fabricators" do

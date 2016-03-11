@@ -6,25 +6,24 @@ class UrlsController < ApplicationController
   respond_to :html, :json
 
   def index
-    if params[:user_id]
+    if user_signed_in?
       @urls = current_user.urls.order("redirect_count DESC")
       @page_header = "My Short Urls"
     elsif params[:popular]
       @urls = Url.order("redirect_count DESC")
       @page_header = "Most Popular Short Urls"
     else
-      @urls = Url.order("created_at DESC")
       @page_header = "Latest Urls"
     end
 
     @url = Url.new
   end
 
-  def show
-  end
-
   def new
     @url = Url.new
+  end
+
+  def show
   end
 
   def edit
@@ -47,7 +46,6 @@ class UrlsController < ApplicationController
   end
 
   def destroy
-    @url = Url.find(params[:id])
     @url.destroy
     redirect_to urls_url
   end

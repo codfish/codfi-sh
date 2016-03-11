@@ -1,21 +1,21 @@
 <%= render 'form' %>
 
-<h1><%= @page_header ? @page_header : "Latest Urls" %></h1>
+<% if user_signed_in? %>
+  <h1><%= @page_header ? @page_header : "Latest Urls" %></h1>
 
-<ul class="url-items">
-  <% @urls.each do |url| %>
-  <li>
-    <span class="redirect-count" rel="tooltip" title="This short url was used <%= url.redirect_count %> times." data-original-title="This short url was used <%= url.redirect_count %> times.">
-      <%= url.redirect_count %>
-    </span>
-    <h3>
-      <%= link_to "codfi.sh/#{url.short_url}", "#{root_url}#{url.short_url}" %>
-    </h3>
-    <p class="full-url">
-      <%= url.full_url %>
-    </p>
-  </li>
-  <% end %>
-</ul>
-
-<%= link_to 'New Url', new_url_path %>
+  <ul class="url-items">
+    <% @urls.each do |url| %>
+    <li>
+      <span class="redirect-count" rel="tooltip" title="This short url was used <%= url.redirect_count %> times." data-original-title="This short url was used <%= url.redirect_count %> times.">
+        <%= url.redirect_count %>
+      </span>
+      <h3>
+        <%= link_to "codfi.sh/#{url.short_url}", "#{root_url}#{url.short_url}" %>
+      </h3>
+      <p class="full-url">
+        <%= url.full_url %>
+      </p>
+    </li>
+    <% end %>
+  </ul>
+<% end %>

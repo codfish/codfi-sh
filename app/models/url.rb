@@ -37,6 +37,7 @@ class Url < ActiveRecord::Base
   def validates_uniqueness_per_user
     self.dont_shorten_me if Url.find_by_full_url(self.full_url)
     return true if self.users.empty?
+
     if @user = User.find(self.users[0].id) and @user.urls.find_by_full_url(self.full_url)
       errors.add(:full_url, "You've already shortened this Url.")
     end

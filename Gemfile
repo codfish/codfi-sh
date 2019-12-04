@@ -8,7 +8,7 @@ gem 'rails', '3.2.11'
 gem 'pg'
 gem 'devise'
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails', '2.1.7'
+gem 'twitter-bootstrap-rails', '2.2.8'
 gem 'haml'
 
 # Gems used only for assets and not required

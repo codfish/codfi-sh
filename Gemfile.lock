@@ -55,7 +55,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.1)
-    fabrication (2.11.3)
+    fabrication (2.21.1)
     ffaker (1.24.0)
     haml (4.0.5)
       tilt
